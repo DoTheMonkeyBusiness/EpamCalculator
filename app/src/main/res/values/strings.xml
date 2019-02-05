@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EpamCalculator</string>
+    <string name="standard_calc_value">0</string>
+    <string name="calc_value_1">1</string>
+    <string name="calc_value_2">2</string>
+    <string name="calc_value_3">3</string>
+    <string name="calc_value_4">4</string>
+    <string name="calc_value_5">5</string>
+    <string name="calc_value_6">6</string>
+    <string name="calc_value_7">7</string>
+    <string name="calc_value_8">8</string>
+    <string name="calc_value_9">9</string>
+    <string name="calc_value_0">0</string>
+    <string name="calc_value_point">.</string>
+    <string name="calc_value_division">÷</string>
+    <string name="calc_value_multiply">x</string>
+    <string name="calc_value_percent">%</string>
+    <string name="calc_value_minus">-</string>
+    <string name="calc_value_plus">+</string>
+    <string name="calc_value_plus_minus">±</string>
+    <string name="calc_value_equal">=</string>
+    <string name="calc_value_AC">AC</string>
+    <string name="calc_value_C">C</string>
+</resources>
