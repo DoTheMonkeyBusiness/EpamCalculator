@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonTheme" parent="@style/Widget.AppCompat.Button.Borderless">
+        <!-- Customize your theme here. -->
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorControlHighlight">#673ab7</item>
+    </style>
+
 </resources>
