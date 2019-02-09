@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnSignClick(View view){
         Button button = (Button) view;
-
         if (haveFirst){
             calculate(view);
             sign = button.getText().toString();
@@ -87,10 +86,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
         }
+        if(button.getText().toString().equals("=")){
+             haveFirst = false;
+        }
         textResult.setText(result);
         digits = "";
         firstValue = Double.parseDouble(result);
-        haveFirst = false;
+
     }
 
     public void onACClick(View view){
