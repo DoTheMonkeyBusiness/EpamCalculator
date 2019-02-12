@@ -28,13 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void onDigitClick(View view){
          Button button = (Button) view;
-        if(textResult.getText().length() > 8 || (button.getText().toString().equals(".") && textResult.getText().toString().contains("."))) {
+        if(!(textResult.getText().length() > 8 || (button.getText().toString().equals(".") && textResult.getText().toString().contains(".")))) {
 
-            return;
-
-        }
-        else {
-            digits += button.getText().toString();
+            if(digits.length() == 0 && button.getText().toString().equals("."))
+            {
+                digits += "0.";
+            }
+            else {
+                digits += button.getText().toString();
+            }
             textResult.setText(digits);
         }
 
