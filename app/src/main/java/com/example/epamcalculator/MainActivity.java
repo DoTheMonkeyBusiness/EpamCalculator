@@ -7,123 +7,120 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String EQUAL = "=";
+    private static final String POINT = ".";
 
-    private TextView textResult;
-    private String sign, digits, result;
-    private double firstValue, secondValue, equalValue;
-    private boolean haveFirst;
+    private TextView textResultView;
+
+    private int sign;
+
+    private String digits = "";
+    private String result;
+
+    private double firstValue;
+    private double secondValue;
+
+    private boolean haveFirst = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textResult = (TextView)findViewById(R.id.activity_main_text_result);
-        digits = "";
-        sign = "";
+
+        textResultView = findViewById(R.id.activity_main_text_result);
         result = getString(R.string.standard_calc_value);
-        firstValue = 0;
-        secondValue = 0;
-        haveFirst = false;
     }
 
-    public void onDigitClick(View view){
-         Button button = (Button) view;
-        if(!(textResult.getText().length() > 8 || (button.getText().toString().equals(".") && textResult.getText().toString().contains(".")))) {
+    public void onDigitClick(View view) {
+        Button button = (Button) view;
 
-            if(digits.length() == 0 && button.getText().toString().equals("."))
-            {
+        if (!(digits.length() > 8 || (button.getText().toString().equals(POINT) && digits.contains(POINT)))) {
+
+            if (digits.length() == 0 && button.getText().toString().equals(POINT)) {
                 digits += "0.";
-            }
-            else {
+            } else {
                 digits += button.getText().toString();
             }
-            textResult.setText(digits);
+            textResultView.setText(digits);
         }
-
     }
 
-    public void OnSignClick(View view){
+    public void OnSignClick(View view) {
         Button button = (Button) view;
-        if (haveFirst){
+
+        if (haveFirst) {
             calculate(view);
-            sign = button.getText().toString();
+            sign = button.getId();
             return;
         }
-        sign = button.getText().toString();
-        firstValue = Double.parseDouble(textResult.getText().toString());
-//        textResult.setText(getString(R.string.standard_calc_value));
+        sign = button.getId();
+        firstValue = Double.parseDouble(textResultView.getText().toString());
         digits = "";
         haveFirst = true;
-
     }
 
-    public void calculate(View view){
+    public void calculate(View view) {
         Button button = (Button) view;
-//      secondValue = Double.parseDouble(textResult.getText().toString());
+        double equalValue;
 
         try {
             equalValue = Double.parseDouble(digits);
-        }catch (Exception e){
+        } catch (Exception e) {
             equalValue = secondValue;
         }
         secondValue = equalValue;
         switch (sign) {
-            case "+":
-                result = String.valueOf(firstValue + secondValue);
+            case R.id.activity_main_button_plus:
+                result = Math.sum(firstValue, secondValue);
                 break;
-            case "-":
-                result = String.valueOf(firstValue - secondValue);
+            case R.id.activity_main_button_minus:
+                result = Math.subtraction(firstValue, secondValue);
                 break;
-            case "x":
-                result = String.valueOf(firstValue * secondValue );
+            case R.id.activity_main_button_multiply:
+                result = Math.multiplication(firstValue, secondValue);
                 break;
-            case "÷":
-                result = String.valueOf(firstValue / secondValue);
+            case R.id.activity_main_button_division:
+                result = Math.division(firstValue, secondValue);
                 break;
-            case "%":
-                result = String.valueOf(secondValue / 100 * firstValue);
+            case R.id.activity_main_button_percent:
+                result = Math.percentage(firstValue, secondValue);
                 break;
             default:
                 result = String.valueOf(firstValue);
                 break;
 
         }
-        if(button.getText().toString().equals("=")){
-             haveFirst = false;
+        if (button.getText().toString().equals(EQUAL)) {
+            haveFirst = false;
         }
-        textResult.setText(result);
+        textResultView.setText(result);
         digits = "";
         firstValue = Double.parseDouble(result);
-
     }
 
-    public void onACClick(View view){
-        textResult.setText(getString(R.string.standard_calc_value));
+    public void onACClick(View view) {
+        textResultView.setText(getString(R.string.standard_calc_value));
         digits = "";
-        sign = "";
+        sign = 0;
         firstValue = 0;
         secondValue = 0;
         haveFirst = false;
     }
 
-    public void onCClick(View view){
-
-        if(digits.length() > 1) {
+    public void onCClick(View view) {
+        if (digits.length() > 1) {
             digits = digits.substring(0, digits.length() - 1);
-            textResult.setText(digits);
+            textResultView.setText(digits);
+        } else {
+            textResultView.setText(getString(R.string.standard_calc_value));
         }
-        else {
-            textResult.setText(getString(R.string.standard_calc_value));
-        }
-
-
     }
 
-    public void onPlusMinusClick(View view){
-        if(!digits.equals("")) {
+    public void onPlusMinusClick(View view) {
+        if (!digits.equals("")) {
             digits = String.valueOf(Double.parseDouble(digits) * -1);
-            textResult.setText(digits);
+            textResultView.setText(digits);
         }
-
     }
 
 
