@@ -72,21 +72,27 @@ public class MainActivity extends AppCompatActivity {
         switch (sign) {
             case R.id.activity_main_button_plus:
                 result = Math.sum(firstValue, secondValue);
+
                 break;
             case R.id.activity_main_button_minus:
                 result = Math.subtraction(firstValue, secondValue);
+
                 break;
             case R.id.activity_main_button_multiply:
                 result = Math.multiplication(firstValue, secondValue);
+
                 break;
             case R.id.activity_main_button_division:
                 result = Math.division(firstValue, secondValue);
+
                 break;
             case R.id.activity_main_button_percent:
                 result = Math.percentage(firstValue, secondValue);
+
                 break;
             default:
                 result = String.valueOf(firstValue);
+
                 break;
 
         }
@@ -122,6 +128,4 @@ public class MainActivity extends AppCompatActivity {
             textResultView.setText(digits);
         }
     }
-
-
 }
