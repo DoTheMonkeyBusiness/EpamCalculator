@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textResultView = findViewById(R.id.activity_main_text_result);
+        textResultView = findViewById(R.id.activity_main_result_textView);
         result = getString(R.string.standard_calc_value);
     }
 
@@ -70,23 +70,23 @@ public class MainActivity extends AppCompatActivity {
         }
         secondValue = equalValue;
         switch (sign) {
-            case R.id.activity_main_button_plus:
+            case R.id.activity_main_plus_button:
                 result = Math.sum(firstValue, secondValue);
 
                 break;
-            case R.id.activity_main_button_minus:
+            case R.id.activity_main_minus_button:
                 result = Math.subtraction(firstValue, secondValue);
 
                 break;
-            case R.id.activity_main_button_multiply:
+            case R.id.activity_main_multiply_button:
                 result = Math.multiplication(firstValue, secondValue);
 
                 break;
-            case R.id.activity_main_button_division:
+            case R.id.activity_main_division_button:
                 result = Math.division(firstValue, secondValue);
 
                 break;
-            case R.id.activity_main_button_percent:
+            case R.id.activity_main_percent_button:
                 result = Math.percentage(firstValue, secondValue);
 
                 break;
