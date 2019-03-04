@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) view;
 
         if (!(digits.length() > 8 || (button.getText().toString().equals(POINT) && digits.contains(POINT)))) {
-
             if (digits.length() == 0 && button.getText().toString().equals(POINT)) {
                 digits += "0.";
             } else {
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             sign = button.getId();
             return;
         }
+
         sign = button.getId();
         firstValue = Double.parseDouble(textResultView.getText().toString());
         digits = EMPTY_LINE;
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             equalValue = secondValue;
         }
+
         secondValue = equalValue;
         switch (sign) {
             case R.id.activity_main_plus_button:
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         if (button.getText().toString().equals(EQUAL)) {
             haveFirst = false;
         }
+
         textResultView.setText(result);
         digits = EMPTY_LINE;
         firstValue = Double.parseDouble(result);
