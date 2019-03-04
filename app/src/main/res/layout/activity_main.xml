@@ -90,7 +90,7 @@
                     android:textColor="@color/colorText"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="OnSignClick"/>
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onSignClick"/>
             <Button
                     android:id="@+id/activity_main_division_button"
                     android:layout_width="0dp"
@@ -101,7 +101,7 @@
                     android:textColor="@color/colorText"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="OnSignClick"/>
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onSignClick"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -153,7 +153,7 @@
                     android:textColor="@color/colorText"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="OnSignClick"/>
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onSignClick"/>
 
         </LinearLayout>
         <LinearLayout
@@ -206,7 +206,7 @@
                     android:textColor="@color/colorText"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="OnSignClick"/>
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onSignClick"/>
 
         </LinearLayout>
         <LinearLayout
@@ -259,7 +259,7 @@
                     android:textColor="@color/colorText"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="OnSignClick"/>
+                    style="@style/Widget.AppCompat.Button.Borderless" android:onClick="onSignClick"/>
 
         </LinearLayout>
 

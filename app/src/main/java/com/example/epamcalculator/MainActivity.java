@@ -9,12 +9,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private static final String EQUAL = "=";
     private static final String POINT = ".";
+    private static final String EMPTY_LINE = "";
 
     private TextView textResultView;
 
     private int sign;
 
-    private String digits = "";
+    private String digits = EMPTY_LINE;
     private String result;
 
     private double firstValue;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void OnSignClick(View view) {
+    public void onSignClick(View view) {
         Button button = (Button) view;
 
         if (haveFirst) {
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         }
         sign = button.getId();
         firstValue = Double.parseDouble(textResultView.getText().toString());
-        digits = "";
+        digits = EMPTY_LINE;
         haveFirst = true;
     }
 
@@ -63,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) view;
         double equalValue;
 
-        try {
+        if (!digits.equals(EMPTY_LINE)) {
             equalValue = Double.parseDouble(digits);
-        } catch (Exception e) {
+        } else {
             equalValue = secondValue;
         }
         secondValue = equalValue;
@@ -94,19 +95,19 @@ public class MainActivity extends AppCompatActivity {
                 result = String.valueOf(firstValue);
 
                 break;
-
         }
+
         if (button.getText().toString().equals(EQUAL)) {
             haveFirst = false;
         }
         textResultView.setText(result);
-        digits = "";
+        digits = EMPTY_LINE;
         firstValue = Double.parseDouble(result);
     }
 
     public void onACClick(View view) {
         textResultView.setText(getString(R.string.standard_calc_value));
-        digits = "";
+        digits = EMPTY_LINE;
         sign = 0;
         firstValue = 0;
         secondValue = 0;
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onPlusMinusClick(View view) {
-        if (!digits.equals("")) {
+        if (!digits.equals(EMPTY_LINE)) {
             digits = String.valueOf(Double.parseDouble(digits) * -1);
             textResultView.setText(digits);
         }
