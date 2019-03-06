@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     public void onDigitClick(View view) {
         Button button = (Button) view;
 
-        if (!(digits.length() > 8 || (button.getText().toString().equals(POINT) && digits.contains(POINT)))) {
+        if (!(digits.length() > 8
+                || (button.getText().toString().equals(POINT)
+                                    && digits.contains(POINT)))) {
             if (digits.length() == 0 && button.getText().toString().equals(POINT)) {
                 digits += "0.";
             } else {
